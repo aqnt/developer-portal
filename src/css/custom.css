@@ -1,0 +1,534 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* GitHub Dark Theme Colors */
+[data-theme='dark'] {
+  --ifm-color-primary: #58a6ff;
+  --ifm-color-primary-dark: #4493f8;
+  --ifm-color-primary-darker: #3582e5;
+  --ifm-color-primary-darkest: #1f6feb;
+  --ifm-color-primary-light: #6ab3ff;
+  --ifm-color-primary-lighter: #7ab8ff;
+  --ifm-color-primary-lightest: #9ecaff;
+  --docusaurus-highlighted-code-line-bg: rgba(110, 118, 129, 0.1);
+  --ifm-background-color: #0d1117;
+  --ifm-background-surface-color: #161b22;
+}
+
+/* Enhanced Navbar Styling */
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.75rem 1rem;
+  min-height: 60px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Navbar when scrolled - enhanced blur */
+.navbar--scrolled {
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  padding: 0.5rem 1rem !important;
+  min-height: 56px;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(13, 17, 23, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .navbar--scrolled {
+  background: rgba(13, 17, 23, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Ensure navbar container has proper background for blur effect */
+.navbar__inner {
+  background: transparent;
+}
+
+.navbar--scrolled .navbar__inner {
+  background: transparent;
+}
+
+/* Navbar brand/logo styling */
+.navbar__brand {
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+}
+
+.navbar--scrolled .navbar__brand {
+  font-size: 1.0625rem;
+}
+
+.navbar__logo {
+  height: 32px;
+  width: auto;
+  margin-right: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar--scrolled .navbar__logo {
+  height: 28px;
+}
+
+/* Navbar items styling */
+.navbar__item {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.navbar__link {
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.25rem;
+  font-size: 0.9375rem;
+  position: relative;
+}
+
+.navbar__link:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Dropdown menu styling */
+.navbar__dropdown {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme='dark'] .navbar__dropdown {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background: rgba(13, 17, 23, 0.95) !important;
+}
+
+.navbar__dropdown__link {
+  padding: 0.625rem 1rem;
+  transition: background 0.2s ease;
+  border-radius: 0;
+}
+
+.navbar__dropdown__link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .navbar__dropdown__link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile menu button */
+.navbar__toggle {
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.navbar__toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .navbar__toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar menu (mobile) */
+.navbar-sidebar {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background: rgba(13, 17, 23, 0.95) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Smooth transitions for all navbar elements */
+.navbar * {
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+/* Fix for navbar background on all pages */
+.navbar,
+.navbar__inner,
+.navbar__items,
+.navbar__item {
+  background: transparent !important;
+}
+
+.navbar--scrolled,
+.navbar--scrolled .navbar__inner,
+.navbar--scrolled .navbar__items,
+.navbar--scrolled .navbar__item {
+  background: transparent !important;
+}
+
+/* Ensure proper stacking context for blur */
+.navbar {
+  isolation: isolate;
+}
+
+/* Fix for search bar in navbar */
+.navbar__search {
+  transition: all 0.3s ease;
+}
+
+.navbar--scrolled .navbar__search {
+  opacity: 0.95;
+}
+
+/* Enhanced Footer Styling */
+.footer {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, #0d1117 0%, #000000 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), transparent);
+  border-radius: 2px;
+}
+
+.footer__link-item {
+  margin-bottom: 0.75rem;
+}
+
+.footer__link {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 0;
+}
+
+.footer__link:hover {
+  color: var(--ifm-color-primary-light);
+  transform: translateX(4px);
+  text-decoration: none;
+}
+
+.footer__link::before {
+  content: '→';
+  position: absolute;
+  left: -16px;
+  opacity: 0;
+  transition: all 0.2s ease;
+  color: var(--ifm-color-primary);
+}
+
+.footer__link:hover::before {
+  opacity: 1;
+  left: -12px;
+}
+
+.footer__item {
+  margin-bottom: 0.75rem;
+}
+
+.footer__copyright {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+.footer__logo {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footer__logo:hover {
+  opacity: 1;
+}
+
+.footer__col {
+  margin-bottom: 2rem;
+  flex: 1 1 0;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer grid improvements - evenly distributed */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.footer__links > .footer__col {
+  flex: 1 1 0;
+  min-width: 200px;
+  max-width: none;
+}
+
+@media (min-width: 996px) {
+  .footer__links {
+    gap: 3rem;
+  }
+  
+  .footer__links > .footer__col {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+/* Ensure footer container uses full width and proper layout */
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+  gap: 2rem;
+}
+
+.footer .row > .col {
+  flex: 1 1 0;
+  min-width: 200px;
+  padding: 0;
+}
+
+@media (min-width: 996px) {
+  .footer .row {
+    gap: 3rem;
+  }
+  
+  .footer .row > .col {
+    flex: 1 1 0;
+    max-width: none;
+    min-width: 0;
+  }
+}
+
+/* Footer brand section */
+.footer__brand {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__brand-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  max-width: 400px;
+}
+
+/* Footer social links */
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.footer__social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer__social-link:hover {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer newsletter section (optional) */
+.footer__newsletter {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__newsletter-title {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.footer__newsletter-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Enhanced footer divider */
+.footer__divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 2rem 0;
+}
+
+/* Footer badge/status */
+.footer__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 20px;
+  color: #4ade80;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.footer__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive footer */
+@media (max-width: 996px) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer__title {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer__links {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__brand-text {
+    font-size: 0.875rem;
+  }
+}
+
